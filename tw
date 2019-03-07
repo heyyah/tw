@@ -1,0 +1,17 @@
+if(window.location.href.indexOf("scavenge") != -1) {
+	if(document.getElementsByClassName("return-countdown") == null) {
+		document.getElementsByClassName("fill-all")[0].click();
+		document.getElementsByClassName("units-entry-all")[document.getElementsByClassName("units-entry-all").length - 1].click();
+		document.getElementsByClassName("free_send_button")[document.getElementsByClassName("free_send_button").length - 1].click();
+		window.location.href = window.location.href;
+	} else {
+		var x = document.getElementsByClassName("return-countdown")[0].textContent;
+		var tempo = parseInt(x.substring(x.indexOf(":") + 1, x.indexOf(":") + 3) * 60);
+		tempo += parseInt(x.substring(x.lastIndexOf(":") + 1, x.lastIndexOf(":") + 3));
+		tempo *= 1000;
+		window.setTimeout(function() {
+			window.location.href = window.location.href;
+		}, tempo);
+	}
+	
+}
